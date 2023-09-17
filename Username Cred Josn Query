@@ -1,0 +1,271 @@
+GET logstash-*/_search
+{
+  "aggs": {
+    "2": {
+      "terms": {
+        "field": "username.keyword",
+        "order": {
+          "_count": "desc"
+        },
+        "size": 10
+      }
+    }
+  },
+  "size": 0,
+  "fields": [
+    {
+      "field": "@timestamp",
+      "format": "date_time"
+    },
+    {
+      "field": "end_time",
+      "format": "date_time"
+    },
+    {
+      "field": "flow.start",
+      "format": "date_time"
+    },
+    {
+      "field": "start_time",
+      "format": "date_time"
+    },
+    {
+      "field": "time_iso8601",
+      "format": "date_time"
+    },
+    {
+      "field": "timestamp",
+      "format": "date_time"
+    },
+    {
+      "field": "tls.notafter",
+      "format": "date_time"
+    },
+    {
+      "field": "tls.notbefore",
+      "format": "date_time"
+    }
+  ],
+  "script_fields": {},
+  "stored_fields": [
+    "*"
+  ],
+  "runtime_mappings": {},
+  "_source": {
+    "excludes": []
+  },
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "query_string": {
+            "query": "*"
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Cowrie"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Dionaea"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Heralding"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "RDPY"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              }
+            ],
+            "minimum_should_match": 1
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "format": "strict_date_optional_time",
+              "gte": "2023-09-16T11:00:00.000Z",
+              "lte": "2023-09-17T11:02:33.550Z"
+            }
+          }
+        }
+      ],
+      "should": [],
+      "must_not": []
+    }
+  }
+}
+
+GET logstash-*/_search
+{
+  "aggs": {
+    "2": {
+      "terms": {
+        "field": "username.keyword",
+        "order": {
+          "_count": "desc"
+        },
+        "size": 10
+      }
+    }
+  },
+  "size": 0,
+  "fields": [
+    {
+      "field": "@timestamp",
+      "format": "date_time"
+    },
+    {
+      "field": "end_time",
+      "format": "date_time"
+    },
+    {
+      "field": "flow.start",
+      "format": "date_time"
+    },
+    {
+      "field": "start_time",
+      "format": "date_time"
+    },
+    {
+      "field": "time_iso8601",
+      "format": "date_time"
+    },
+    {
+      "field": "timestamp",
+      "format": "date_time"
+    },
+    {
+      "field": "tls.notafter",
+      "format": "date_time"
+    },
+    {
+      "field": "tls.notbefore",
+      "format": "date_time"
+    }
+  ],
+  "script_fields": {},
+  "stored_fields": [
+    "*"
+  ],
+  "runtime_mappings": {},
+  "_source": {
+    "excludes": []
+  },
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "query_string": {
+            "query": "*"
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Cowrie"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Dionaea"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "Heralding"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              },
+              {
+                "bool": {
+                  "should": [
+                    {
+                      "term": {
+                        "type.keyword": "RDPY"
+                      }
+                    }
+                  ],
+                  "minimum_should_match": 1
+                }
+              }
+            ],
+            "minimum_should_match": 1
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "format": "strict_date_optional_time",
+              "gte": "2023-09-16T11:00:00.000Z",
+              "lte": "2023-09-17T11:02:33.550Z"
+            }
+          }
+        }
+      ],
+      "should": [],
+      "must_not": []
+    }
+  }
+}
