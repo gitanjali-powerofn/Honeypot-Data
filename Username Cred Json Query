@@ -122,8 +122,8 @@ GET logstash-*/_search
           "range": {
             "@timestamp": {
               "format": "strict_date_optional_time",
-              "gte": "2023-09-16T11:00:00.000Z",
-              "lte": "2023-09-17T11:02:33.550Z"
+              "gte": "2023-07-01T11:00:00.000Z",
+              "lte": "2023-07-31T11:02:33.550Z"
             }
           }
         }
